@@ -74,14 +74,5 @@ class Student extends Person {
 
 //Problem 7:
 const getIntersection = (input1: number[], input2: number[]): number[] => {
-  const newArr:number[] = [];
-  for (let i = 0; i < input1.length; i++) {
-    for (let j = 0; j < input2.length; j++) {
-      if (input1[i] === input2[j] && !newArr.includes(input1[i])) {
-        newArr.push(input1[i]);
-      }
-    }
-  }
-  return newArr;
-  //or if we want duplicate elements return input1.filter(item=>input2.includes(item))
+  return input1.filter(item=>input2.includes(item))
 };
