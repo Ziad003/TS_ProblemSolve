@@ -40,7 +40,7 @@ interface Book {
   isRead?: boolean;
 }
 
-const togtoggleReadStatus = (input: Book): Book => {
+const toggleReadStatus = (input: Book): Book => {
   return {
     title: input.title,
     author: input.author,
@@ -67,22 +67,21 @@ class Student extends Person {
     super(name, age);
     this.grade = grade;
   }
-  getDetails() {
-    console.log(`Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`);
+  getDetails():string {
+    return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
   }
 }
 
 //Problem 7:
 const getIntersection = (input1: number[], input2: number[]): number[] => {
-  const newArr = [];
+  const newArr:number[] = [];
   for (let i = 0; i < input1.length; i++) {
     for (let j = 0; j < input2.length; j++) {
-      if (input1[i] === input2[j]) {
+      if (input1[i] === input2[j] && !newArr.includes(input1[i])) {
         newArr.push(input1[i]);
       }
     }
   }
   return newArr;
-  //or return input1.filter(item=>input2.includes(item))
+  //or if we want duplicate elements return input1.filter(item=>input2.includes(item))
 };
-console.log(getIntersection([12, 3, 3], [3, 4, 5]));
